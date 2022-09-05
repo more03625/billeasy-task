@@ -64,25 +64,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "Get Employee",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/employees",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"employees"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }

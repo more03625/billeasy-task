@@ -1,3 +1,5 @@
+-- STEPS TO run the PROJECT
+
 -- CLONE THE PROJECT
 -- Create .env file using the .env.example given
 -- Then run `npm i`
@@ -53,7 +55,6 @@ FROM getAllEmployees('1998-08-31','2022-10-30', 3);
 
 
 -- START USING API's using postman.
-
 
 
 
