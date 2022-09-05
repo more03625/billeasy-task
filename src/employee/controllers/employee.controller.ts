@@ -1,17 +1,13 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { CreateEmployeeDto } from '../dtos';
 import { EmployeeService } from '../services';
 
 @Controller('employees')
 export class EmployeeController {
   constructor(private readonly employeeService: EmployeeService) {}
 
-  @Get()
-  getHello(): string {
-    return this.employeeService.getHello();
-  }
-
   @Post()
-  async post(){
-    
+  async addEmployee(@Body() createUserDto: CreateEmployeeDto): Promise<Record<string, any>>{
+    return await this.employeeService.addEmployee(createUserDto)
   }
 }

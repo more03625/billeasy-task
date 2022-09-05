@@ -1,14 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ArrayService {
-  async getSizeOfMaxiulSubset(number: number, array: string): Promise<number> {
-
+  async getSizeOfMaxiulSubset(number: number, array: string): Promise<Record<string, any>> {
     // Convert string of numbers to array
     const arrayOfnumber = array.split(",");
 
     if (number == 0 || number == 1) {
-      return 1
+      return { status: HttpStatus.OK, message: 'Maximul subset has been calculated!', error: false, data: 1 }
     }
     const ma = {};
     let final = 0;
@@ -16,7 +15,7 @@ export class ArrayService {
       let val = (ma[x % number] ? ma[x % number] + 1 : 1);
       ma[(x % number).toString()] = val;
     });
-    
+
     Object.keys(ma).forEach((x, i) => {
       let oppositeValue = ma[number - Number(x)] || 0;
       if (ma[x] > oppositeValue && Number(x) != 0) {
@@ -25,6 +24,6 @@ export class ArrayService {
         final += 1;
       }
     });
-    return final;
+    return { status: HttpStatus.OK, message: 'Maximul subset has been calculated!', error: false, data: final }
   }
 }
